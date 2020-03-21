@@ -33,10 +33,10 @@ Vagrant.configure("2") do |config|
             vb.customize ["modifyvm", :id, "--memory", "256"]
           end
           
-          box.vm.provision "shell", inline: <<-SHELL
-            mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh
-            yum install vim python3 -y
-          SHELL
+          box.vm.provision "shell", path: "test.sh" # inline: <<-SHELL
+#            mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh
+#            yum install vim mc -y
+#          SHELL
 
       end
   end
